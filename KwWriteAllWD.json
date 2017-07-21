@@ -1,5 +1,5 @@
 {
-    "event": "TSwriteall",
+    "event": "KlettWettWriteAllWD",
     "url": "https://api.thingspeak.com/update.json",
     "requestType": "POST",
     "json": {
