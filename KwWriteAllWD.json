@@ -1,0 +1,21 @@
+{
+    "event": "TSwriteall",
+    "url": "https://api.thingspeak.com/update.json",
+    "requestType": "POST",
+    "json": {
+		"api_key": "{{k}}",
+		"field1": "{{1}}",
+		"field2": "{{2}}",
+		"field3": "{{3}}",
+		"field4": "{{4}}",
+		"field5": "{{5}}",
+		"field6": "{{6}}",
+		"field7": "{{7}}",
+		"field8": "{{8}}",
+		"lat": "{{a}}",
+		"long": "{{o}}",
+		"elevation": "{{e}}",
+		"status": "{{s}}"
+    },
+	"noDefaults": false
+}

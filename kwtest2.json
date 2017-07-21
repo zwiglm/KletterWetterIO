@@ -1,0 +1,10 @@
+{
+    "event": "kwtest2",
+    "url": "http://requestb.in/1ciq9kj1",
+    "requestType": "POST",
+    "json": {
+        "name": "",
+        "value": ""
+    },
+    "noDefaults": false
+}
