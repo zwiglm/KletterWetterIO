@@ -1,8 +1,9 @@
 // This #include statement was automatically added by the Particle IDE.
-#include "SparkFun_Photon_Weather_Shield_Library/SparkFun_Photon_Weather_Shield_Library.h"
-
-// Add math to get sine and cosine for wind vane
+#include <SparkFun_Photon_Weather_Shield_Library.h>
 #include <math.h>
+
+PRODUCT_ID(5036);
+PRODUCT_VERSION(1);
 
 /*
   *****************************************************************************************
@@ -14,14 +15,13 @@
   *****************************************************************************************/
 
 // Each time we loop through the main loop, we check to see if it's time to capture the sensor readings
-unsigned int sensorCapturePeriod = 100;
+unsigned int sensorCapturePeriod = 300; //100;
 unsigned int timeNextSensorReading;
 
 // Each time we loop through the main loop, we check to see if it's time to publish the data we've collected
 unsigned int publishPeriod = 900000; //60000;
 unsigned int timeNextPublish; 
 
-String api_key = "Your API Key aka. service command cmd"; // Replace this string with a valid ThingSpeak Write API Key.
 String field1 = "";
 String field2 = "";  // i.e. field2 is null
 String field3 = "";
@@ -84,7 +84,7 @@ void loop() {
 }
 
 
-void publishRettew(float tempF, float humidityRH, float pressureKPa, float rainPerMM, float windKPH, float gustKPH, float windDegrees, float voltage) {
+void publishRettew(float tempC, float humidityRH, float pressureKPa, float rainPerMM, float windKPH, float gustKPH, float windDegrees, float voltage) {
     // To write multiple fields, you set the various fields you want to send
     
     field1 = String(tempC, 1);
@@ -392,57 +392,57 @@ float lookupRadiansFromRaw(unsigned int analogRaw)
 // Function to build the 'json' to trigger the Webhook.  To save characters the string only includes parameters that are not null.
 void createKWjson(String &dest)
 {
-  // dest = "{ \"k\":\"" + cmd + "\", \"1\":\""+ field1 +"\", \"2\":\""+ field2 +"\",\"3\":\""+ field3 +"\",\"4\":\""+ field4 +"\",\"5\":\""+ field5 +"\",\"6\":\""+ field6 +"\",\"7\":\""+ field7 +"\",\"8\":\""+ field8 +"\",\"a\":\""+ lat +"\",\"o\":\""+ lon +"\",\"e\":\""+ el +"\", \"s\":\""+ status +"\"}";
+  // dest = "{ \"1\":\""+ field1 +"\", \"2\":\""+ field2 +"\",\"3\":\""+ field3 +"\",\"4\":\""+ field4 +"\",\"5\":\""+ field5 +"\",\"6\":\""+ field6 +"\",\"7\":\""+ field7 +"\",\"8\":\""+ field8 +"\",\"a\":\""+ lat +"\",\"o\":\""+ lon +"\",\"e\":\""+ el +"\", \"s\":\""+ status +"\"}";
   
     dest = "{";
     
-    if(field1.length()>0){
+    if(field1.length() >0 ){
         dest = dest + "\"1\":\""+ field1 +"\",";
     }
 
-    if(field2.length()>0){
+    if(field2.length() > 0){
         dest = dest + "\"2\":\""+ field2 +"\",";
     }
 
-    if(field3.length()>0){
+    if(field3.length() > 0){
         dest = dest + "\"3\":\""+ field3 +"\",";
     }
 
-    if(field4.length()>0){
+    if(field4.length() > 0){
         dest = dest + "\"4\":\""+ field4 +"\",";
     }
 
-    if(field5.length()>0){
+    if(field5.length() > 0){
         dest = dest + "\"5\":\""+ field5 +"\",";
     }
 
-    if(field6.length()>0){
+    if(field6.length() > 0){
         dest = dest + "\"6\":\""+ field6 +"\",";
     }
 
-    if(field7.length()>0){
+    if(field7.length() > 0){
         dest = dest + "\"7\":\""+ field7 +"\",";
     }
 
-    if(field8.length()>0){
+    if(field8.length() > 0){
         dest = dest + "\"8\":\""+ field8 +"\",";
     }
 
-    if(lat.length()>0){
+    if(lat.length() > 0){
         dest = dest + "\"a\":\""+ lat +"\",";
     }
 
-    if(lon.length()>0){
+    if(lon.length() > 0){
         dest = dest + "\"o\":\""+ lon +"\",";
     }
 
-    if(el.length()>0){
+    if(el.length() > 0){
         dest = dest + "\"e\":\""+ el +"\",";
     }
 
-    if(status.length()>0){
+    if(status.length() > 0){
         dest = dest + "\"s\":\""+ status +"\",";
     }
     
-    dest = dest + "\"k\":\"" + cmd + "\"}";
+    dest = dest + "}";
 }
