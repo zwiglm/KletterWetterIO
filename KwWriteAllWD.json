@@ -3,7 +3,7 @@
     "url": "https://api.thingspeak.com/update.json",
     "requestType": "POST",
     "json": {
-		"api_key": "{{k}}",
+		"cmd": "{{k}}",
 		"field1": "{{1}}",
 		"field2": "{{2}}",
 		"field3": "{{3}}",

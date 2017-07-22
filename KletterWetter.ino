@@ -21,7 +21,7 @@ unsigned int timeNextSensorReading;
 unsigned int publishPeriod = 900000; //60000;
 unsigned int timeNextPublish; 
 
-String api_key = "Your API Key"; // Replace this string with a valid ThingSpeak Write API Key.
+String api_key = "Your API Key aka. service command cmd"; // Replace this string with a valid ThingSpeak Write API Key.
 String field1 = "";
 String field2 = "";  // i.e. field2 is null
 String field3 = "";
@@ -392,7 +392,7 @@ float lookupRadiansFromRaw(unsigned int analogRaw)
 // Function to build the 'json' to trigger the Webhook.  To save characters the string only includes parameters that are not null.
 void createKWjson(String &dest)
 {
-  // dest = "{ \"k\":\"" + api_key + "\", \"1\":\""+ field1 +"\", \"2\":\""+ field2 +"\",\"3\":\""+ field3 +"\",\"4\":\""+ field4 +"\",\"5\":\""+ field5 +"\",\"6\":\""+ field6 +"\",\"7\":\""+ field7 +"\",\"8\":\""+ field8 +"\",\"a\":\""+ lat +"\",\"o\":\""+ lon +"\",\"e\":\""+ el +"\", \"s\":\""+ status +"\"}";
+  // dest = "{ \"k\":\"" + cmd + "\", \"1\":\""+ field1 +"\", \"2\":\""+ field2 +"\",\"3\":\""+ field3 +"\",\"4\":\""+ field4 +"\",\"5\":\""+ field5 +"\",\"6\":\""+ field6 +"\",\"7\":\""+ field7 +"\",\"8\":\""+ field8 +"\",\"a\":\""+ lat +"\",\"o\":\""+ lon +"\",\"e\":\""+ el +"\", \"s\":\""+ status +"\"}";
   
     dest = "{";
     
@@ -444,5 +444,5 @@ void createKWjson(String &dest)
         dest = dest + "\"s\":\""+ status +"\",";
     }
     
-    dest = dest + "\"k\":\"" + api_key + "\"}";
+    dest = dest + "\"k\":\"" + cmd + "\"}";
 }
