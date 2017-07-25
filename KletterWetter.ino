@@ -3,7 +3,7 @@
 #include <math.h>
 
 PRODUCT_ID(5036);
-PRODUCT_VERSION(1);
+PRODUCT_VERSION(2);
 
 /*
   *****************************************************************************************
@@ -397,52 +397,36 @@ void createKWjson(String &dest)
     dest = "{";
     
     if(field1.length() >0 ){
-        dest = dest + "\"1\":\""+ field1 +"\",";
+        dest = dest + "\"field1\":\""+ field1 +"\",";
     }
 
     if(field2.length() > 0){
-        dest = dest + "\"2\":\""+ field2 +"\",";
+        dest = dest + "\"field2\":\""+ field2 +"\",";
     }
 
     if(field3.length() > 0){
-        dest = dest + "\"3\":\""+ field3 +"\",";
+        dest = dest + "\"field3\":\""+ field3 +"\",";
     }
 
     if(field4.length() > 0){
-        dest = dest + "\"4\":\""+ field4 +"\",";
+        dest = dest + "\"field4\":\""+ field4 +"\",";
     }
 
     if(field5.length() > 0){
-        dest = dest + "\"5\":\""+ field5 +"\",";
+        dest = dest + "\"field5\":\""+ field5 +"\",";
     }
 
     if(field6.length() > 0){
-        dest = dest + "\"6\":\""+ field6 +"\",";
+        dest = dest + "\"field6\":\""+ field6 +"\",";
     }
 
     if(field7.length() > 0){
-        dest = dest + "\"7\":\""+ field7 +"\",";
+        dest = dest + "\"field7\":\""+ field7 +"\",";
     }
 
     if(field8.length() > 0){
-        dest = dest + "\"8\":\""+ field8 +"\",";
+        dest = dest + "\"field8\":\""+ field8 +"\",";
     }
 
-    if(lat.length() > 0){
-        dest = dest + "\"a\":\""+ lat +"\",";
-    }
-
-    if(lon.length() > 0){
-        dest = dest + "\"o\":\""+ lon +"\",";
-    }
-
-    if(el.length() > 0){
-        dest = dest + "\"e\":\""+ el +"\",";
-    }
-
-    if(status.length() > 0){
-        dest = dest + "\"s\":\""+ status +"\",";
-    }
-    
     dest = dest + "}";
 }
