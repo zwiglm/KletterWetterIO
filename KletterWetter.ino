@@ -425,7 +425,7 @@ void createKWjson(String &dest)
     }
 
     if(field8.length() > 0){
-        dest = dest + "\"field8\":\""+ field8 +"\",";
+        dest = dest + "\"field8\":\""+ field8 +"\"";
     }
 
     dest = dest + "}";
