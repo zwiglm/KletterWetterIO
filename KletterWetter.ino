@@ -3,7 +3,7 @@
 #include <math.h>
 
 PRODUCT_ID(5036);
-PRODUCT_VERSION(2);
+PRODUCT_VERSION(3);
 
 /*
   *****************************************************************************************
@@ -19,7 +19,7 @@ unsigned int sensorCapturePeriod = 300; //100;
 unsigned int timeNextSensorReading;
 
 // Each time we loop through the main loop, we check to see if it's time to publish the data we've collected
-unsigned int publishPeriod = 900000; //60000;
+unsigned int publishPeriod = 1800000; //900000; //60000;
 unsigned int timeNextPublish; 
 
 String field1 = "";
